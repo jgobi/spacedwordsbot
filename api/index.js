@@ -1,0 +1,31 @@
+const url = 'https://api.telegram.org/bot';
+const apiToken = process.env.BOT_TOKEN;
+const axios = require('axios');
+const crypto = require('crypto');
+module.exports = (req, res) => {
+	console.log(apiToken);
+     if (req.body.inline_query) {
+	let qid = req.body.inline_query.id;
+        let q =  req.body.inline_query.query;
+	let msg =  q.split('').join(' ');
+	     axios.post(`${url}${apiToken}/answerInlineQuery`,
+               {
+		       inline_query_id: qid,
+		       results: [{
+			       type: 'article',
+			       id: crypto.randomBytes(30).toString('hex'),
+			       title: msg,
+			       input_message_content: {
+					message_text: msg,
+			       },
+		       }],
+	       })
+	     .then((response) => { 
+                    res.status(200).send(response);
+               }).catch((error) => {
+                    res.send(error);
+               });
+     } else {
+          res.status(200).send({});
+     }
+};
