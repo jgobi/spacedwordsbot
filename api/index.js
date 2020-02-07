@@ -4,7 +4,6 @@ const axios = require('axios');
 const crypto = require('crypto');
 const spacify = require('./spacifier');
 module.exports = (req, res) => {
-    console.log(apiToken);
     if (req.body.inline_query) {
         let qid = req.body.inline_query.id;
         let q =  req.body.inline_query.query;
@@ -23,7 +22,8 @@ module.exports = (req, res) => {
             })
         .then((response) => { 
             res.status(200).send(response);
-        }).catch((error) => {
+        })
+        .catch((error) => {
             res.send(error);
         });
      } else {
