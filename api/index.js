@@ -13,7 +13,8 @@ module.exports = (req, res) => {
             results: [{
                 type: 'article',
                 id: crypto.randomBytes(30).toString('hex'),
-                title: msg,
+                title: "Your  s t y l i s h e d  message:",
+                description: msg,
                 input_message_content: {
                     message_text: msg,
                 },
