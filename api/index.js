@@ -8,7 +8,7 @@ module.exports = (req, res) => {
 	if (req.body.inline_query) {
 		let qid = req.body.inline_query.id;
 		let q =  req.body.inline_query.query;
-		let msg =  space.spacify(q);
+		let msg = spacify(q);
 		axios.post(`${url}${apiToken}/answerInlineQuery`,
 			{
 				inline_query_id: qid,
