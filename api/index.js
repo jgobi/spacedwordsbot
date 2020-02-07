@@ -22,11 +22,11 @@ module.exports = (req, res) => {
                 }],
             })
         .then((response) => { 
-                    res.status(200).send(response);
+            res.status(200).send(response);
         }).catch((error) => {
-                    res.send(error);
-                });
+            res.send(error);
+        });
      } else {
-            res.status(200).send({});
+        res.status(200).send({});
      }
 };

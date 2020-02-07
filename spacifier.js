@@ -1,4 +1,4 @@
-function _spacify(str){ return str.split('').join(' ');}
+const _spacify = (str) => str.split('').join(' ');
 
 const spacify = (str) => {
     let splitResult = str.split('..');
