@@ -2,7 +2,7 @@ const url = 'https://api.telegram.org/bot';
 const apiToken = process.env.BOT_TOKEN;
 const axios = require('axios');
 const crypto = require('crypto');
-const space = require('./spacifier');
+const spacify = require('./spacifier');
 module.exports = (req, res) => {
 	console.log(apiToken);
 	if (req.body.inline_query) {
